@@ -1,0 +1,24 @@
+.formContainer {
+  margin-top: 40px;
+  margin-left: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.formInput {
+  width: 500px;
+  height: 24px;
+}
+
+.searchButton {
+  background: orange;
+  width: 90px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.searchResultsList {
+  margin-left: 20px;
+  text-decoration: underline;
+}

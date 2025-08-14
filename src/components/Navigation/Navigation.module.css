@@ -1,0 +1,9 @@
+.navList {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 166, 0, 0.7);
+  border-radius: 1px;
+  box-shadow: 0px 0px 15px 1px orange;
+  margin-bottom: 20px;
+}
