@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router";
 import { fetchTrendingMovies } from "../../services/MovieApi/movie-api";
 import style from "./HomePage.module.css";
+import MovieList from "../../components/MovieList/MovieList";
 
 const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const trendingMoviesList = async () => {
@@ -34,21 +33,9 @@ const HomePage = () => {
       {isLoading && <p>Loading trending movies...</p>}
       {error && <p style={{ color: "red" }}>Failed to load trending movies.</p>}
 
-      {!isLoading && !error && (
-        <ul>
-          {trendingMovies.length > 0 ? (
-            trendingMovies.map((movie) => (
-              <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`} state={location.pathname}>
-                  {movie.title}
-                </Link>
-              </li>
-            ))
-          ) : (
-            <div>No trending movies found.</div>
-          )}
-        </ul>
-      )}
+      {!isLoading &&
+        !error &&
+        (trendingMovies.length > 0 ? <MovieList movies={trendingMovies} /> : <div>No trending movies found.</div>)}
     </>
   );
 };
